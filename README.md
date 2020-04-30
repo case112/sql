@@ -37,3 +37,14 @@
     FROM a_long_widgets_table_name AS mywidgets
     INNER JOIN widget_sales
         ON mywidgets.id = widget_sales.widget_id;
+
+
+
+**Select query with HAVING constraint**
+
+
+    SELECT group_by_column, AGG_FUNC(column_expression) AS aggregate_result_alias, …
+    FROM mytable
+    WHERE condition
+    GROUP BY column
+    HAVING group_condition;
