@@ -61,3 +61,15 @@
         HAVING constraint_expression
         ORDER BY column ASC/DESC
         LIMIT count OFFSET COUNT;
+
+
+**Altering tables**
+
+    ALTER TABLE mytable
+
+    ADD column DataType OptionalTableConstraint 
+        DEFAULT default_value;
+
+    DROP column_to_be_deleted;
+
+    RENAME TO new_table_name;
