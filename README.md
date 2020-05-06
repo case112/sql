@@ -1,13 +1,16 @@
 ## SQL Samples
 
-**Select query with limited rows**
+**Complete ORDER SELECT query**
 
-    SELECT column, another_column, …
+    SELECT DISTINCT column, AGG_FUNC(column_or_expression), …
     FROM mytable
-    WHERE condition(s)
-    ORDER BY column ASC/DESC
-    LIMIT num_limit OFFSET num_offset;
-
+        JOIN another_table
+        ON mytable.column = another_table.column
+        WHERE constraint_expression
+        GROUP BY column
+        HAVING constraint_expression
+        ORDER BY column ASC/DESC
+        LIMIT count OFFSET COUNT;
 
 **Select query with LEFT/RIGHT/FULL JOINs on multiple tables**
 
@@ -50,18 +53,6 @@
     HAVING group_condition;
 
 
-**Complete ORDER SELECT query**
-
-    SELECT DISTINCT column, AGG_FUNC(column_or_expression), …
-    FROM mytable
-        JOIN another_table
-        ON mytable.column = another_table.column
-        WHERE constraint_expression
-        GROUP BY column
-        HAVING constraint_expression
-        ORDER BY column ASC/DESC
-        LIMIT count OFFSET COUNT;
-
 
 **Altering tables**
 
@@ -73,3 +64,4 @@
     DROP column_to_be_deleted;
 
     RENAME TO new_table_name;
+
